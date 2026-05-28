@@ -1,0 +1,74 @@
+/* ui/css/base.css */
+
+:root {
+  /* --- COLORES OFICIALES DEL MANUAL --- */
+  --brand-orange: #FF6B0B;
+  --brand-orange-hsl: hsl(24, 100%, 52%);
+
+  --brand-cyan: #24AEE5;
+  --brand-cyan-hsl: hsl(197, 79%, 52%);
+
+  --brand-magenta: #C32986;
+  --brand-magenta-hsl: hsl(324, 65%, 46%);
+
+  /* --- NEUTROS Y FONDOS RECOMENDADOS --- */
+  --brand-sand: hsl(30, 25%, 92%);         /* Beige/Arena suave de fondo (#EDE3DA) */
+  --brand-sand-light: hsl(30, 30%, 97%);   /* Crema ultra suave para tarjetas y contrastes (#FAF7F4) */
+  --brand-dark: hsl(215, 28%, 17%);        /* Carbón oscuro para textos legibles (#1E293B) */
+  --brand-dark-muted: hsl(215, 16%, 47%);  /* Gris azulado para subtítulos y texto secundario */
+  --brand-white: #FFFFFF;
+
+  /* --- ESPACIADO Y SEGURIDAD (ZONA RESTRINGIDA) --- */
+  --brand-safe-zone: 1.5rem;
+}
+
+/* --- RESET GLOBAL --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- CONFIGURACIÓN TIPOGRÁFICA OFFLINE-FIRST --- */
+
+/* Tipografía Oficial para Títulos (Alternativa legal y libre a Good Times) */
+@font-face {
+  font-family: 'Syncopate';
+  src: url('../assets/fonts/Syncopate-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tipografía de Interfaz y Cuerpo */
+@font-face {
+  font-family: 'Outfit';
+  src: url('../assets/fonts/Outfit-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../assets/fonts/Outfit-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  background-color: var(--brand-sand-light);
+  color: var(--brand-dark);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+h1, h2, h3, .brand-title {
+  font-family: 'Syncopate', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--brand-dark);
+}

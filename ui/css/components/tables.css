@@ -1,0 +1,110 @@
+/* ui/css/components/tables.css */
+
+.estudiantes-section {
+  overflow: hidden;
+  padding: 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid hsl(30, 20%, 93%);
+}
+
+.section-header .section-label {
+  margin-bottom: 0;
+}
+
+.tabla-wrapper {
+  overflow-x: auto;
+}
+
+.tabla-estudiantes {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.tabla-estudiantes thead tr {
+  background: var(--brand-sand-light);
+  border-bottom: 2px solid hsl(30, 20%, 90%);
+}
+
+.tabla-estudiantes th {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-dark-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tabla-estudiantes td {
+  padding: 0.95rem 1.25rem;
+  border-bottom: 1px solid hsl(30, 20%, 93%);
+  vertical-align: middle;
+  color: var(--brand-dark);
+  font-size: 0.9rem;
+}
+
+.tabla-estudiantes tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-estudiantes tbody tr:hover {
+  background: hsl(30, 30%, 98%);
+}
+
+.col-id {
+  color: var(--brand-dark-muted);
+  font-size: 0.8rem;
+  width: 3.5rem;
+  font-weight: 600;
+}
+
+.col-participaciones {
+  text-align: center;
+  width: 8rem;
+}
+
+.col-acciones {
+  text-align: right;
+  white-space: nowrap;
+  width: 8rem;
+}
+
+/* --- BADGE DE PARTICIPACIONES --- */
+.participaciones-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 0.6rem;
+  background: hsl(197, 70%, 94%);
+  color: var(--brand-cyan);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid var(--brand-cyan);
+  transition: background 0.2s, color 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+/* Animación al actualizar participación (Destello Naranja) */
+.participaciones-badge.participaciones-updated {
+  background: var(--brand-orange);
+  color: var(--brand-white);
+  border-color: var(--brand-orange);
+  transform: scale(1.22);
+}
+
+/* --- RESPONSIVE TABLES --- */
+@media (max-width: 600px) {
+  .tabla-estudiantes th,
+  .tabla-estudiantes td {
+    padding: 0.75rem 0.6rem;
+  }
+}

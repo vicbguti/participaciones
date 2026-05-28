@@ -1,0 +1,67 @@
+/* ui/css/layout.css */
+
+.app-header {
+  background: var(--brand-sand);
+  color: var(--brand-dark);
+  padding: 1.25rem 2rem;
+  border-bottom: 4px solid var(--brand-orange);
+  box-shadow: 0 4px 20px rgba(30, 41, 59, 0.05);
+}
+
+.header-content {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-title h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--brand-dark);
+}
+
+.header-subtitle {
+  font-size: 0.78rem;
+  color: var(--brand-dark-muted);
+  font-weight: 600;
+  margin-top: 0.15rem;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.app-main {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 var(--brand-safe-zone);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- RESPONSIVE LAYOUT --- */
+@media (max-width: 600px) {
+  .app-header {
+    padding: 1rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .header-title h1 {
+    font-size: 1.15rem;
+  }
+
+  .app-main {
+    margin: 1rem auto;
+    gap: 1rem;
+  }
+}

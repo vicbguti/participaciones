@@ -1,0 +1,53 @@
+/* ui/css/components/feedback.css */
+
+.guardar-mensaje {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 1.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid var(--color-success);
+  animation: slideIn 0.25s ease-out;
+}
+
+.guardar-icono {
+  font-style: normal;
+  font-weight: 800;
+}
+
+.loading-text {
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--brand-dark-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.no-resultados {
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--brand-dark-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- ANIMACIONES GLOBALES --- */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

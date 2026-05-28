@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Participaciones - Tecnologías Programables</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="ui/assets/icons/logo/favicon-composed.svg" />
+
+  <!-- Carga de Componentes Web Nativos (Modulares) -->
+  <script type="module" src="ui/components/brand-header.js"></script>
+  <script type="module" src="ui/components/search-filters.js"></script>
+  <script type="module" src="ui/components/students-card.js"></script>
+</head>
+<body>
+  
+  <!-- Cabecera Oficial y Logotipo de Marca -->
+  <brand-header></brand-header>
+
+  <!-- Contenedor Principal de la App -->
+  <main class="app-main">
+    <!-- Filtros de Búsqueda -->
+    <search-filters></search-filters>
+    
+    <!-- Tabla y Registros de Alumnos -->
+    <students-card></students-card>
+  </main>
+
+  <!-- Controladores Dinámicos -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>

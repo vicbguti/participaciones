@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "opentype.js": "^2.0.0"
+  }
+}

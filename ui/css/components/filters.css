@@ -1,0 +1,59 @@
+/* ui/css/components/filters.css */
+
+.filtros-section {
+  padding: 1.25rem 1.5rem;
+}
+
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--brand-dark-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.filtros-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filtro-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 160px;
+}
+
+.filtro-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--brand-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.input {
+  padding: 0.55rem 0.85rem;
+  border: 1.5px solid hsl(214, 32%, 91%);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--brand-dark);
+  background: var(--brand-sand-light);
+  outline: none;
+  font-family: 'Outfit', sans-serif;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.input::placeholder {
+  color: var(--brand-dark-muted);
+  opacity: 0.65;
+}
+
+.input:focus {
+  border-color: var(--brand-orange);
+  box-shadow: 0 0 0 3px rgba(255, 107, 11, 0.12);
+  background: var(--brand-white);
+}

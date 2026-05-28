@@ -1,0 +1,103 @@
+/* ui/css/components/buttons.css */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, opacity 0.15s, transform 0.1s, padding-right 0.2s ease;
+  white-space: nowrap;
+  font-family: 'Outfit', sans-serif;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Botón Principal (Naranja Oficial con Nodo de Circuito en Hover) */
+.btn-primary {
+  background: var(--brand-orange);
+  color: var(--brand-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--brand-cyan);
+  border-radius: 50%;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%) scale(0);
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 8px var(--brand-cyan);
+}
+
+.btn-primary:hover {
+  background: hsl(24, 100%, 46%);
+  padding-right: 2.2rem; /* Abre espacio para el nodo */
+}
+
+.btn-primary:hover::after {
+  transform: translateY(-50%) scale(1);
+}
+
+/* Botón Delineado (Para cabeceras o fondos oscuros/arena) */
+.btn-outline {
+  background: transparent;
+  color: var(--brand-dark);
+  border: 2px solid var(--brand-dark-muted);
+}
+
+.btn-outline:hover {
+  background: rgba(30, 41, 59, 0.05);
+  border-color: var(--brand-dark);
+}
+
+/* --- BOTONES DE ACCIÓN EN TABLAS (+ y -) --- */
+.btn-accion {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-accion:active {
+  transform: scale(0.88);
+}
+
+.btn-mas {
+  background: hsl(142, 70%, 93%);
+  color: var(--color-success);
+  margin-right: 0.4rem;
+}
+
+.btn-mas:hover {
+  background: hsl(142, 72%, 85%);
+}
+
+.btn-menos {
+  background: hsl(0, 80%, 95%);
+  color: var(--color-danger);
+}
+
+.btn-menos:hover {
+  background: hsl(0, 84%, 88%);
+}

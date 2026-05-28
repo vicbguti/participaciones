@@ -1,0 +1,15 @@
+/* ui/css/main.css */
+
+/* 1. Base (Resets y Variables de Marca) */
+@import "base.css";
+
+/* 2. Layout (Header, Main, Responsive Grid) */
+@import "layout.css";
+
+/* 3. Componentes Específicos */
+@import "components/buttons.css";
+@import "components/cards.css";
+@import "components/filters.css";
+@import "components/tables.css";
+@import "components/leaderboard.css";
+@import "components/feedback.css";

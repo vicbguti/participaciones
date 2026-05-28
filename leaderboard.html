@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard — Tecnologías Programables</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Carga de Componentes Web Nativos (Modulares) -->
+  <script type="module" src="ui/components/brand-header.js"></script>
+  <script type="module" src="ui/components/leaderboard-card.js"></script>
+</head>
+<body>
+  
+  <!-- Cabecera Oficial y Logotipo de Marca Reutilizado -->
+  <brand-header></brand-header>
+
+  <!-- Contenedor Principal de la App -->
+  <main class="app-main">
+    <!-- Podio y Lista de Clasificación -->
+    <leaderboard-card></leaderboard-card>
+  </main>
+
+  <!-- Controladores Dinámicos -->
+  <script type="module" src="leaderboard.js"></script>
+</body>
+</html>

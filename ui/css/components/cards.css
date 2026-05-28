@@ -1,0 +1,43 @@
+/* ui/css/components/cards.css */
+
+.card {
+  background: var(--brand-white);
+  border: 1px solid hsl(30, 20%, 88%);
+  border-radius: 16px;
+  box-shadow: 
+    0 1px 3px rgba(32, 41, 56, 0.02),
+    0 10px 30px rgba(32, 41, 56, 0.04);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 
+    0 4px 6px rgba(32, 41, 56, 0.02),
+    0 12px 35px rgba(32, 41, 56, 0.06);
+}
+
+/* --- CLASES DE UTILIDAD DE COMBINACIÓN OFICIAL (Páginas 011 y 012) --- */
+
+.bg-brand-magenta {
+  background-color: var(--brand-magenta);
+  color: var(--brand-white);
+  border: none;
+}
+
+.bg-brand-magenta h1,
+.bg-brand-magenta h2,
+.bg-brand-magenta h3,
+.bg-brand-magenta .section-label {
+  color: var(--brand-white);
+}
+
+.bg-brand-magenta .text-highlight {
+  color: var(--brand-cyan);
+}
+
+.bg-brand-cyan {
+  background-color: var(--brand-cyan);
+  color: var(--brand-dark);
+  border: none;
+}
