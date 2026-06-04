@@ -63,6 +63,17 @@
   border-color: var(--brand-dark);
 }
 
+.btn-danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 2px solid hsl(0, 72%, 84%);
+}
+
+.btn-danger:hover {
+  background: hsl(0, 80%, 92%);
+  border-color: var(--color-danger);
+}
+
 /* --- BOTONES DE ACCIÓN EN TABLAS (+ y -) --- */
 .btn-accion {
   width: 2.2rem;

@@ -1,5 +1,5 @@
 
-export const PLANTILLA = "plantilla.xlsx";
+export const PLANTILLA = "participaciones.csv";
 
 export const CURSO = "curso-ejemplo";
 

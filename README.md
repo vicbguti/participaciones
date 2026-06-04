@@ -7,7 +7,7 @@ A highly optimized, Vanilla JavaScript web application designed to track, manage
 *   **Vanilla Web Components:** Zero framework overhead. The UI is built using highly encapsulated, native HTML Custom Elements (`<brand-header>`, `<students-card>`, etc.).
 *   **Offline-First Architecture:** Engineered to be robust and functional even in environments with unstable network connectivity.
 *   **Automated Brand Pipeline:** Features a bespoke Node.js build engine that parses OpenType fonts and generates mathematically perfect SVG brand assets (Logos, Symbols, Favicons) on the fly.
-*   **Excel Integration:** Seamlessly import class rosters and export participation reports using native Excel processing controllers.
+*   **CSV Integration:** Import class rosters, update participation totals in memory, and export updated CSV reports without external dependencies.
 *   **Leaderboard Gamification:** Includes a real-time podium system to encourage healthy student engagement.
 
 ## 📁 Repository Structure
@@ -18,7 +18,7 @@ A highly optimized, Vanilla JavaScript web application designed to track, manage
 ├── ui/                 # Frontend Layer (Web Components, CSS, Icons, Templates)
 ├── index.html          # Main Application View (Roster & Grading)
 ├── leaderboard.html    # Gamification View (Podium)
-└── *.js (Root)         # Core Domain Models & Data Controllers (Estudiante, Excel, etc.)
+└── *.js (Root)         # Core Domain Models & Data Controllers (Estudiante, CSV, etc.)
 ```
 
 ## 📚 Documentation

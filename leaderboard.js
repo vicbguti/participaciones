@@ -1,11 +1,11 @@
 import { PLANTILLA, CURSO, NUM_TOP_ENTRIES } from "./config.js";
-import { RegistrosExcel } from "./registrosExcel.js";
+import { RegistrosCsv } from "./registrosCsv.js";
 import { renderLeaderboard } from "./renders.js";
 
-const registrosExcel = new RegistrosExcel(PLANTILLA, CURSO);
+const registrosCsv = new RegistrosCsv(PLANTILLA, CURSO);
 
 async function init() {
-  const leaderboardData = await registrosExcel.getLeaderboard();
+  const leaderboardData = await registrosCsv.getLeaderboard();
   renderLeaderboard(leaderboardData, NUM_TOP_ENTRIES);
 }
 

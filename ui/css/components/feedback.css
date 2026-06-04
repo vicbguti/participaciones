@@ -15,6 +15,18 @@
   animation: slideIn 0.25s ease-out;
 }
 
+.guardar-mensaje-success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.guardar-mensaje-error {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
 .guardar-icono {
   font-style: normal;
   font-weight: 800;

@@ -2,20 +2,31 @@ import {
     initData,
     handleMarcarParticipacion,
     handleQuitarParticipacion,
-    handleGuardarExcel,
+    handleGuardarRegistros,
+    handleCargarCsv,
+    handleLimpiarRegistros,
     handleFiltroEstudiantes
 } from "./participaciones.js";
 
 
 function init() {
     initData();
-    initGuardarExcelBtn();
+    initRegistroButtons();
     initParticipacionButtons();
     initFiltroInputs();
 }
 
-function initGuardarExcelBtn() {
-    document.getElementById("btnGuardar").addEventListener("click", handleGuardarExcel);
+function initRegistroButtons() {
+    document.getElementById("btnGuardar").addEventListener("click", handleGuardarRegistros);
+    document.getElementById("btnLimpiarRegistros").addEventListener("click", handleLimpiarRegistros);
+
+    const inputCsv = document.getElementById("inputCsv");
+    document.getElementById("btnCargarCsv").addEventListener("click", () => inputCsv.click());
+    inputCsv.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        handleCargarCsv(file);
+        event.target.value = "";
+    });
 }
 
 function initParticipacionButtons() {

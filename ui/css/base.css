@@ -18,6 +18,11 @@
   --brand-dark-muted: hsl(215, 16%, 47%);  /* Gris azulado para subtítulos y texto secundario */
   --brand-white: #FFFFFF;
 
+  --color-success: hsl(142, 72%, 29%);
+  --color-success-bg: hsl(142, 70%, 95%);
+  --color-danger: hsl(0, 72%, 42%);
+  --color-danger-bg: hsl(0, 80%, 96%);
+
   /* --- ESPACIADO Y SEGURIDAD (ZONA RESTRINGIDA) --- */
   --brand-safe-zone: 1.5rem;
 }

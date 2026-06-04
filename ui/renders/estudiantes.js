@@ -2,9 +2,9 @@
 
 import { buildFilaTablaEstudiante, buildTablaHeader } from "../templates/estudiantes.js";
 
-export function renderEstudiantes(estudiantes) {
+export function renderEstudiantes(estudiantes, emptyMessage = "No se encontraron estudiantes.") {
   console.log("Renderizando estudiantes:", estudiantes);
-  const container = renderEstudiantesContainer(estudiantes);
+  const container = renderEstudiantesContainer(estudiantes, emptyMessage);
   if (!container || estudiantes.length === 0) return;
 
   const table = document.createElement("table");
@@ -37,14 +37,14 @@ export function updateParticipacion(estudianteId, numParticipacion) {
   setTimeout(() => badge.classList.remove("participaciones-updated"), 500);
 }
 
-function renderEstudiantesContainer(estudiantes) {
+function renderEstudiantesContainer(estudiantes, emptyMessage) {
   const container = document.getElementById("tabla-estudiantes");
   if (!container) return null;
 
   container.innerHTML = "";
 
   if (estudiantes.length === 0) {
-    container.innerHTML = '<p class="no-resultados">No se encontraron estudiantes.</p>';
+    container.innerHTML = `<p class="no-resultados">${emptyMessage}</p>`;
     return null;
   }
 

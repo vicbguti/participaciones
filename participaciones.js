@@ -1,35 +1,59 @@
 import { EstudiantesController } from "./estudiante.js";
-import { RegistrosExcel } from "./registrosExcel.js";
+import { RegistrosCsv } from "./registrosCsv.js";
 import { renderEstudiantes, renderGuardarRegistros, updateParticipacion } from "./renders.js";
 import { PLANTILLA, CURSO } from "./config.js";
 
 const estudiantesController = new EstudiantesController();
-const registrosExcel = new RegistrosExcel(PLANTILLA, CURSO);
+const registrosCsv = new RegistrosCsv(PLANTILLA, CURSO);
 
 
 export async function initData() {
-  const estudiantes = await registrosExcel.cargarEstudiantes();
+  const estudiantes = await registrosCsv.cargarEstudiantes();
   estudiantesController.setEstudiantes(estudiantes);
-  renderEstudiantes(estudiantes);
+  renderEstudiantes(estudiantes, "Carga un archivo CSV para empezar a registrar participaciones.");
 }
 
 export function handleMarcarParticipacion(estudianteId) {
   estudiantesController.incrementarParticipacion(estudianteId);
   const estudiante = estudiantesController.getEstudiante(estudianteId);
+  registrosCsv.guardarEstudiantesLocalmente(estudiantesController.estudiantes);
   updateParticipacion(estudianteId, estudiante.participaciones);
 }
 
 export function handleQuitarParticipacion(estudianteId) {
   estudiantesController.decrementarParticipacion(estudianteId);
   const estudiante = estudiantesController.getEstudiante(estudianteId);
+  registrosCsv.guardarEstudiantesLocalmente(estudiantesController.estudiantes);
   updateParticipacion(estudianteId, estudiante.participaciones);
 }
 
 
-export function handleGuardarExcel() {
+export async function handleGuardarRegistros() {
   const estudiantes = estudiantesController.estudiantes;
-  registrosExcel.exportarEstudiantes(estudiantes);
-  renderGuardarRegistros();
+  try {
+    await registrosCsv.exportarEstudiantes(estudiantes);
+    renderGuardarRegistros("Registros guardados correctamente.", "success");
+  } catch (error) {
+    renderGuardarRegistros(error.message, "error");
+  }
+}
+
+export async function handleCargarCsv(file) {
+  try {
+    const estudiantes = await registrosCsv.cargarEstudiantesDesdeArchivo(file);
+    estudiantesController.setEstudiantes(estudiantes);
+    renderEstudiantes(estudiantes);
+    renderGuardarRegistros("CSV cargado correctamente.", "success");
+  } catch (error) {
+    renderGuardarRegistros(error.message, "error");
+  }
+}
+
+export function handleLimpiarRegistros() {
+  registrosCsv.limpiarEstudiantesLocalmente();
+  estudiantesController.setEstudiantes([]);
+  renderEstudiantes([], "Carga un archivo CSV para empezar a registrar participaciones.");
+  renderGuardarRegistros("Datos locales limpiados correctamente.", "success");
 }
 
 
