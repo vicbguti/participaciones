@@ -41,15 +41,18 @@
   transition: transform 0.2s ease;
   box-shadow: 0 0 8px var(--brand-cyan);
 }
-
 .btn-primary:hover {
   background: hsl(24, 100%, 46%);
-  padding-right: 2.2rem; /* Abre espacio para el nodo */
 }
 
-.btn-primary:hover::after {
-  transform: translateY(-50%) scale(1);
+.btn-primary::after {
+  content: none;
 }
+
+#btnGuardar::after {
+  display: none;
+}
+
 
 /* Botón Delineado (Para cabeceras o fondos oscuros/arena) */
 .btn-outline {
