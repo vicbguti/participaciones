@@ -3,7 +3,7 @@ import { RegistrosCsv } from "./registrosCsv.js";
 import { renderEstudiantes, renderGuardarRegistros, updateParticipacion } from "./renders.js";
 import { PLANTILLA, CURSO } from "./config.js";
 
-const estudiantesController = new EstudiantesController();
+export const estudiantesController = new EstudiantesController();
 export const registrosCsv = new RegistrosCsv(PLANTILLA, CURSO);
 
 

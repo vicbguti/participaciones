@@ -2,7 +2,7 @@
 // Minimal inline form to add a new student and refresh the table.
 
 import { renderEstudiantes } from "./estudiantes.js";
-import { registrosCsv } from "../../participaciones.js";
+import { registrosCsv, estudiantesController } from "../../participaciones.js";
 
 /**
  * Render a simple form for adding a student.
@@ -49,7 +49,10 @@ export function renderAddStudentForm(container) {
       participaciones: Number(data.get("participaciones"))
     };
     try {
+      // Add the student to storage
       const added = registrosCsv.addStudent(nuevo);
+      // Update the controller's in‑memory list to stay in sync
+      estudiantesController.setEstudiantes(registrosCsv.cargarEstudiantesGuardados());
       // Reload the stored list and re‑render the table.
       const estudiantes = registrosCsv.cargarEstudiantesGuardados();
       renderEstudiantes(estudiantes);
