@@ -1,0 +1,49 @@
+/* -------------------------------------------------------------------------
+   _list.css – styling for the leaderboard rows (positions 4+)
+   ------------------------------------------------------------------------- */
+
+.leaderboard-list { /* already defined in _layout – kept for clarity */ }
+
+.lb-rank {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  width: 2.5rem;
+  color: var(--brand-dark-muted);
+  text-align: center;
+  flex-shrink: 0;
+}
+.lb-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--brand-sand);
+  color: var(--brand-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+}
+.lb-name {
+  flex: 1;
+  font-weight: 700;
+  color: var(--brand-dark);
+  font-size: 0.95rem;
+}
+.lb-score {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--brand-orange);
+  line-height: 1.1;
+  text-align: right;
+}
+.lb-score span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--brand-dark-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

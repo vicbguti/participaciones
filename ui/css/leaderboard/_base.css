@@ -1,0 +1,20 @@
+/* _base.css – shared variables, resets, and typography for the leaderboard */
+:root {
+  /* Brand color palette (already defined elsewhere, but re‑expose for clarity) */
+  --brand-orange: hsl(24, 90%, 55%);
+  --brand-cyan: hsl(197, 70%, 55%);
+  --brand-magenta: hsl(324, 70%, 55%);
+  --brand-dark: hsl(210, 20%, 20%);
+  --brand-white: #ffffff;
+  --brand-sand: hsl(30, 10%, 96%);
+}
+
+/* Simple reset for the leaderboard component */
+.leaderboard * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Typography helpers */
+.leaderboard {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.5;
+  color: var(--brand-dark);
+}

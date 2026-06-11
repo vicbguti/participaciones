@@ -1,0 +1,64 @@
+/* -------------------------------------------------------------------------
+   _layout.css – overall layout of the leaderboard component
+   ------------------------------------------------------------------------- */
+
+/* Container that holds the whole leaderboard (podium + list) */
+.leaderboard {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Podium wrapper – flex layout, centered, bottom‑aligned */
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.25rem;
+  padding: 2.5rem 1rem 3.5rem;
+}
+
+/* Each podium slot stretches equally */
+.podium-slot {
+  max-width: 220px;
+  padding: 1.5rem 1rem 1.25rem;
+  border-radius: 16px 16px 0 0;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(32, 41, 56, 0.03);
+  transition: transform 0.2s ease;
+}
+.podium-slot:hover { transform: translateY(-4px); }
+
+/* List wrapper for positions 4+ */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+/* Individual cards inside the list */
+.leaderboard-card {
+  background: var(--brand-white);
+  border: 1px solid hsl(30, 20%, 90%);
+  border-radius: 12px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(32, 41, 56, 0.02);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.leaderboard-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(32, 41, 56, 0.05);
+}
+
+/* Responsive tweaks – keep the layout tight on small screens */
+@media (max-width: 600px) {
+  .podium { gap: 0.6rem; padding: 1.5rem 0.5rem 2.5rem; }
+  .podium-slot { padding: 1rem 0.5rem; }
+}

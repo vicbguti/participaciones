@@ -1,0 +1,100 @@
+/* -------------------------------------------------------------------------
+   _podium.css – styling for the three podium positions (heights, colors)
+   ------------------------------------------------------------------------- */
+
+/* Height / background per rank – these classes are applied via the
+   `cls` property in `view.js` (place‑1, place‑2, place‑3). */
+.place-1 {
+  background: hsl(24, 90%, 96%);
+  border-top: 4px solid var(--brand-orange);
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.place-2 {
+  background: hsl(197, 70%, 96%);
+  border-top: 4px solid var(--brand-cyan);
+  height: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.place-3 {
+  background: hsl(324, 70%, 96%);
+  border-top: 4px solid var(--brand-magenta);
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Medal icon */
+.podium-medal { font-size: 2.4rem; line-height: 1; }
+
+/* Avatar (initials) */
+.podium-avatar {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--brand-white);
+  margin-top: 0.25rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0; /* keep avatar size intact */
+}
+
+/* Avatar colours per place */
+.place-1 .podium-avatar { background: var(--brand-orange); }
+.place-2 .podium-avatar { background: var(--brand-cyan); }
+.place-3 .podium-avatar { background: var(--brand-magenta); }
+
+/* Name, score and rank label */
+.podium-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--brand-dark);
+  line-height: 1.3;
+  margin-top: 0.25rem;
+}
+.podium-score {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--brand-dark);
+  line-height: 1.1;
+}
+.podium-score span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--brand-dark-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.1rem;
+}
+.podium-rank-label {
+  position: absolute;
+  bottom: -2.5rem;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brand-dark-muted);
+}
+
+/* Responsive scaling for podium */
+@media (max-width: 600px) {
+  .podium-medal { font-size: 1.8rem; }
+  .podium-avatar {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 0.85rem;
+  }
+  .podium-score { font-size: 1.25rem; }
+}
