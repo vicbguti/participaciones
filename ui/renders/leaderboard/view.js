@@ -1,7 +1,8 @@
 // ui/renders/leaderboard/view.js
 // DOM rendering helpers for the leaderboard UI.
 
-import { buildPodium, buildLeaderBoardList } from "../../templates/leaderboard.js";
+import { getAvatarSvg } from "../../assets/avatars/avatarSelector.js";
+import { buildLeaderBoardList } from "../../templates/leaderboard.js";
 import { getPodiumMedal } from "../../assets/icons/medals.js";
 
 export const podiumMap = [
@@ -22,35 +23,22 @@ export function renderLeaderboardContainer(topEntries) {
   return container;
 }
 
-export function renderPodium(container, topEntries) {
-  const podium = document.createElement("div");
-  podium.className = "podium";
+import { renderPodium } from "./podium/renderPodium.js";
 
-  podiumMap.forEach(({ entryIndex, rank, cls }) => {
-    if (entryIndex >= topEntries.length) return;
-    const entry = topEntries[entryIndex];
-    const slot = document.createElement("div");
-    slot.className = `podium-slot ${cls}`;
-    const initials = (entry.nombreEstudiante[0] + entry.apellidoEstudiante[0]).toUpperCase();
-    const medal = getPodiumMedal(rank);
-    slot.innerHTML = buildPodium(initials, entry, rank, medal);
-    podium.appendChild(slot);
-  });
-
-  container.appendChild(podium);
-}
-
-export function renderLeaderboardList(container, topEntries) {
+export async function renderLeaderboardList(container, topEntries) {
   const list = document.createElement("div");
   list.className = "leaderboard-list";
 
-  topEntries.slice(3).forEach((entry, i) => {
-    const initials = (entry.nombreEstudiante[0] + entry.apellidoEstudiante[0]).toUpperCase();
+  // Determine max participations for avatar scaling
+  const maxParticipaciones = Math.max(...topEntries.map(e => e.totalParticipaciones));
+
+  for (const [i, entry] of topEntries.slice(3).entries()) {
+    const { url: avatarSvg, cls: avatarCls } = getAvatarSvg(entry.totalParticipaciones, maxParticipaciones);
     const card = document.createElement("div");
     card.className = "leaderboard-card";
-    card.innerHTML = buildLeaderBoardList(initials, entry, i + 4);
+    card.innerHTML = await buildLeaderBoardList(entry, i + 4, avatarSvg, avatarCls);
     list.appendChild(card);
-  });
+  }
 
   container.appendChild(list);
 }

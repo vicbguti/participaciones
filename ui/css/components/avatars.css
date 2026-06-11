@@ -1,0 +1,9 @@
+/* ui/css/components/avatars.css */
+.avatar-img {
+  width: 3rem;
+  height: 3rem;
+  display: block;
+}
+.avatar-high { color: var(--brand-orange); }
+.avatar-mid  { color: var(--brand-cyan); }
+.avatar-neutral { color: var(--brand-sand); }
