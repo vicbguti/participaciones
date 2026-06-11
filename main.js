@@ -2,7 +2,7 @@ import {
     initData,
     handleMarcarParticipacion,
     handleQuitarParticipacion,
-    handleGuardarRegistros,
+    handleGuardar, // new handler for saving CSV
     handleCargarCsv,
     handleLimpiarRegistros,
     handleFiltroEstudiantes
@@ -17,7 +17,7 @@ function init() {
 }
 
 function initRegistroButtons() {
-    document.getElementById("btnGuardar").addEventListener("click", handleGuardarRegistros);
+    document.getElementById("btnGuardar").addEventListener("click", handleGuardar);
     document.getElementById("btnLimpiarRegistros").addEventListener("click", handleLimpiarRegistros);
 
     const inputCsv = document.getElementById("inputCsv");

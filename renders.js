@@ -1,7 +1,7 @@
 /* renders.js - Punto de Entrada / Fachada (Facade) */
 
 // Importamos la lógica modular desde ui/
-import { renderEstudiantes, updateParticipacion } from "./ui/renders/estudiantes.js";
+import { renderEstudiantes, updateParticipacion, handleGuardar } from "./ui/renders/estudiantes.js";
 import { renderLeaderboard } from "./ui/renders/leaderboard.js";
 import { renderGuardarRegistros } from "./ui/renders/feedback.js";
 
@@ -10,5 +10,6 @@ export {
   renderEstudiantes,
   updateParticipacion,
   renderLeaderboard,
-  renderGuardarRegistros
+  renderGuardarRegistros,
+  handleGuardar
 };

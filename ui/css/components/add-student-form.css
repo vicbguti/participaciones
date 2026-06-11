@@ -1,0 +1,118 @@
+/* ui/css/components/add-student-form.css */
+
+.add-student-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--brand-white);
+  border-radius: 16px;
+  border: 1px solid hsl(30, 20%, 88%);
+  box-shadow: 
+    0 1px 3px rgba(32, 41, 56, 0.02),
+    0 10px 30px rgba(32, 41, 56, 0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.add-student-container:hover {
+  box-shadow: 
+    0 4px 6px rgba(32, 41, 56, 0.02),
+    0 12px 35px rgba(32, 41, 56, 0.06);
+}
+
+.add-student-layout {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.add-student-form-side {
+  flex: 2;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.add-student-preview-side {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-sand-light);
+  border-radius: 12px;
+  border: 1px dashed hsl(30, 20%, 80%);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.add-student-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.add-student-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.add-student-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-dark-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.add-student-group input.input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Preview card styles */
+.preview-avatar-container {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--brand-white);
+  border: 2px solid var(--brand-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.preview-avatar-container img {
+  width: 50px;
+  height: 50px;
+}
+
+.preview-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--brand-dark);
+  margin: 0.25rem 0;
+  word-break: break-all;
+}
+
+.preview-badge-p {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--brand-orange);
+  color: var(--brand-white);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.add-student-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}

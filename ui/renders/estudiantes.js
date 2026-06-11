@@ -1,6 +1,8 @@
 /* ui/renders/estudiantes.js */
 
 import { buildFilaTablaEstudiante, buildTablaHeader } from "../templates/estudiantes.js";
+import { registrosCsv } from "../../participaciones.js";
+import { renderAddStudentForm } from "./estudianteForm.js";
 
 export function renderEstudiantes(estudiantes, emptyMessage = "No se encontraron estudiantes.") {
   console.log("Renderizando estudiantes:", estudiantes);
@@ -23,6 +25,8 @@ export function renderEstudiantes(estudiantes, emptyMessage = "No se encontraron
   table.appendChild(tbody);
 
   container.appendChild(table);
+  // Render the add‑student form below the table
+  renderAddStudentForm(container);
 
   // Re-enlazar event listeners para soporte offline robusto
   // (En caso de que main.js no use delegación, garantizamos que los nuevos botones funcionen)
@@ -66,5 +70,16 @@ function rebindParticipacionEvents(container) {
     });
   }).catch(err => {
     console.warn("No se pudieron rebindear eventos dinámicos (esperado en páginas sin participaciones.js):", err);
+  });
+}
+export function handleGuardar() {
+  const btn = document.getElementById('btnGuardar');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    try {
+      registrosCsv.saveCsvToFile();
+    } catch (e) {
+      console.warn('Error al guardar CSV:', e);
+    }
   });
 }

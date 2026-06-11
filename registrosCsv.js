@@ -207,6 +207,62 @@ function buildEstudiantesCsv(estudiantes) {
     return rows.map((row) => row.map(escapeCsvValue).join(",")).join("\n");
 }
 
+/**
+ * Add a new student to the locally stored array.
+ * Generates a unique incremental ID if not provided.
+ */
+RegistrosCsv.prototype.addStudent = function(student) {
+  // Ensure required fields exist
+  const { nombre, apellido, participaciones } = student;
+  if (!nombre || !apellido) {
+    throw new Error('Nombre y apellido son obligatorios.');
+  }
+  const partInt = Number(participaciones);
+  if (!Number.isInteger(partInt) || partInt < 0) {
+    throw new Error('Participaciones debe ser un entero no negativo.');
+  }
+
+  // Load current list, compute new ID
+  const current = this.cargarEstudiantesGuardados();
+  const maxId = current.reduce((max, s) => Math.max(max, s.id), 0);
+  const newStudent = {
+    id: maxId + 1,
+    nombre: String(nombre).trim(),
+    apellido: String(apellido).trim(),
+    participaciones: partInt
+  };
+  const updated = [...current, newStudent];
+  this.guardarEstudiantesLocalmente(updated);
+  return newStudent;
+};
+
+/**
+ * Serialise an array of students to CSV text.
+ */
+RegistrosCsv.prototype.exportCsv = function(estudiantes) {
+  return buildEstudiantesCsv(estudiantes);
+};
+
+/**
+ * Save the currently stored students to a CSV file (trigger download).
+ */
+RegistrosCsv.prototype.saveCsvToFile = function() {
+  const estudiantes = this.cargarEstudiantesGuardados();
+  if (!estudiantes.length) {
+    throw new Error('No hay estudiantes para exportar.');
+  }
+  const csv = this.exportCsv(estudiantes);
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = this.buildFileName();
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+};
+
 function escapeCsvValue(value) {
     const text = String(value);
     if (/[",\n\r]/.test(text)) {

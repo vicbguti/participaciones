@@ -4,7 +4,7 @@ import { renderEstudiantes, renderGuardarRegistros, updateParticipacion } from "
 import { PLANTILLA, CURSO } from "./config.js";
 
 const estudiantesController = new EstudiantesController();
-const registrosCsv = new RegistrosCsv(PLANTILLA, CURSO);
+export const registrosCsv = new RegistrosCsv(PLANTILLA, CURSO);
 
 
 export async function initData() {
@@ -56,6 +56,14 @@ export function handleLimpiarRegistros() {
   renderGuardarRegistros("Datos locales limpiados correctamente.", "success");
 }
 
+
+export function handleGuardar() {
+  try {
+    registrosCsv.saveCsvToFile();
+  } catch (e) {
+    console.warn('Error al guardar CSV:', e);
+  }
+}
 
 export function handleFiltroEstudiantes(nombre, apellido) {
   const filtrados = estudiantesController.filtrarEstudiantes(nombre, apellido);
