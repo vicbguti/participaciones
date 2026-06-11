@@ -6,7 +6,7 @@ const registrosCsv = new RegistrosCsv(PLANTILLA, CURSO);
 
 async function init() {
   const leaderboardData = await registrosCsv.getLeaderboard();
-  renderLeaderboard(leaderboardData, NUM_TOP_ENTRIES);
+  renderLeaderboard(leaderboardData);
 }
 
 
