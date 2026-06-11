@@ -87,14 +87,15 @@ function parseEstudiantesCsv(text) {
 
     const headers = rows[0].map((value) => value.trim().toLowerCase());
     const expectedHeaders = ["id", "nombre", "apellido", "participaciones"];
-    const hasExpectedHeaders = expectedHeaders.every((header, index) => headers[index] === header);
+    const headerIndexes = Object.fromEntries(headers.map((header, index) => [header, index]));
+    const hasExpectedHeaders = expectedHeaders.every((header) => Number.isInteger(headerIndexes[header]));
     if (!hasExpectedHeaders) {
         throw new Error("El CSV debe tener las columnas: id,nombre,apellido,participaciones.");
     }
 
     return rows.slice(1)
         .filter((row) => row.some((value) => value.trim() !== ""))
-        .map((row, index) => buildEstudiante(row, index + 2));
+        .map((row, index) => buildEstudiante(row, headerIndexes, index + 2));
 }
 
 function parseCsvRows(text) {
@@ -145,15 +146,16 @@ function parseCsvRows(text) {
     return rows.filter((csvRow) => csvRow.some((value) => value.trim() !== ""));
 }
 
-function buildEstudiante(row, lineNumber) {
-    if (row.length !== 4) {
-        throw new Error(`La linea ${lineNumber} debe tener 4 columnas.`);
+function buildEstudiante(row, headerIndexes, lineNumber) {
+    const expectedColumns = Math.max(...Object.values(headerIndexes)) + 1;
+    if (row.length < expectedColumns) {
+        throw new Error(`La linea ${lineNumber} no tiene todas las columnas requeridas.`);
     }
 
-    const id = Number(row[0]);
-    const nombre = row[1].trim();
-    const apellido = row[2].trim();
-    const participaciones = Number(row[3]);
+    const id = Number(row[headerIndexes.id]);
+    const nombre = row[headerIndexes.nombre].trim();
+    const apellido = row[headerIndexes.apellido].trim();
+    const participaciones = Number(row[headerIndexes.participaciones]);
 
     if (!Number.isInteger(id) || id <= 0) {
         throw new Error(`La linea ${lineNumber} tiene un ID invalido.`);
