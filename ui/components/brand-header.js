@@ -21,7 +21,7 @@ class BrandHeader extends HTMLElement {
       : `
         <a href="leaderboard.html" class="btn btn-outline">
           ${iconTrophy()}
-          Ver Leaderboard
+          Ver Ranking
         </a>
       `;
 
